@@ -46,7 +46,7 @@ public class Startup {
     }
 
     public void setScore(int score) {
-        this.score = score;
+        this.score += score;
     }
 
     public void resetEvents(){

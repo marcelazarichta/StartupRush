@@ -51,7 +51,7 @@ public class App {
 
 
         while (!battles.isEmpty()) {
-            System.out.println("Choose which battle you would like to start:");
+            System.out.println("\nChoose which battle you would like to start:");
 
             int option = 1;
             for (Battle b : battles) {
@@ -62,10 +62,17 @@ public class App {
 
             int aux = readInt(1, battles.size()) - 1;
 
+
             Battle chosenBattle = battles.get(aux);
 
             chosenBattle.startBattle();
 
+            if (chosenBattle.getStartup1().getScore() == chosenBattle.getStartup2().getScore()) {
+                chosenBattle.sharkfight();
+            }
+
+            //winning battle gets 30 points
+            chosenBattle.getHighestScore().setScore(30);
 
 
 

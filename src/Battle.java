@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Battle {
 
     private int battleNumber;
@@ -27,19 +29,27 @@ public class Battle {
     }
 
 
+    public Startup getHighestScore(){
+        if (startup1.getScore() > startup2.getScore()){
+            return startup1;
+        } else {
+            return startup2;
+        }
+    }
+
     public void printStartups(){
-        System.out.println("\nParticipating Startups:\n");
-        System.out.println(getStartup1().getName() + "  [Score: " + getStartup1().getScore() + "]\n");
-        System.out.println(getStartup2().getName() + "  [Score: " + getStartup2().getScore() + "]\n");
+        System.out.println(getStartup1().getName() + "  [Score: " + getStartup1().getScore() + "]");
+        System.out.println(getStartup2().getName() + "  [Score: " + getStartup2().getScore() + "]");
     }
 
     public void startBattle(){
         int endBattle = 0;
 
         while (endBattle != 1){
+            System.out.println("\nParticipating Startups:");
             printStartups();
 
-            System.out.println("Which startup would you like to register events for?");
+            System.out.println("\nWhich startup would you like to register events for?");
             System.out.println("[1] " + startup1.getName() + "  [2] " + startup2.getName() + "  [3] End battle");
             int aux = App.readInt(1, 3);
 
@@ -56,9 +66,37 @@ public class Battle {
                     continue;
                 }
                 startup2.makeEvent(event - 1);
+            } else {
+                endBattle++;
             }
-
         }
+    }
+
+    public void sharkfight (){
+        System.out.println("\nWe have a tie between the two startups!");
+        printStartups();
+        System.out.println("\nIt's SHARK FIGHT time");
+        System.out.println("where a random team gets 2 points");
+        System.out.println("And the winner is...\n");
+
+        Random rand = new Random();
+
+
+        int winner = rand.nextInt(2);
+        if (winner == 0){
+            startup1.setScore(2);
+        } else {
+            startup2.setScore(2);
+        }
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+
+        System.out.println(getHighestScore().getName() + "  [Score: " + getHighestScore().getScore() + "]\n");
 
     }
 
