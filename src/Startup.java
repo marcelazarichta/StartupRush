@@ -18,7 +18,14 @@ public class Startup {
         this.score = 70;
         this.events = new boolean[5];
         this.eventsOcurrences = new int[5];
-        this.eventName = setEventName();
+        this.eventName = new String[] {
+                "Convincing pitch",
+                "Buggy product",
+                "Good user traction",
+                "Annoyed investor",
+                "Pitch with fake news"
+        };
+        ;
     }
 
     public String getName() {
@@ -45,22 +52,6 @@ public class Startup {
         return eventName;
     }
 
-    public String[] setEventName(){
-        eventName = new String[5];
-        eventName[0] = "Convincing pitch";
-        eventName[1] = "Buggy product";
-        eventName[2] = "Good user traction";
-        eventName[3] = "Annoyed investor";
-        eventName[4] = "Pitch with fake news";
-
-        return eventName;
-    }
-
-
-
-
-
-
     public void resetEvents(){
         this.events = new boolean[5];
     }
@@ -71,14 +62,14 @@ public class Startup {
             System.out.println("\nSelect an available event: ");
 
             printAvailableEvents();
-            event = App.readInt(1, 6);
+            event = Utilities.readInt(1, 6);
 
             if (event == 6){
                 break;
             }
 
             if (events[event - 1]){
-                Color.printRed("You must choose an available event");
+                Utilities.printRed("You must choose an available event");
                 continue;
             }
             break;
@@ -107,17 +98,24 @@ public class Startup {
     }
 
     public void makeEvent (int event){
-        if (event == 0){
-            score += 6;
-        } else if (event == 1){
-            score -= 4;
-        } else if (event == 2){
-            score += 3;
-        } else if (event == 3){
-            score -= 6;
-        } else {
-            score -= 8;
+        switch (event) {
+            case 0:
+                score += 6;
+                break;
+            case 1:
+                score -= 4;
+                break;
+            case 2:
+                score += 3;
+                break;
+            case 3:
+                score -= 6;
+                break;
+            case 4:
+                score -= 8;
+                break;
         }
+
 
         events[event] = true;
         eventsOcurrences[event]++;

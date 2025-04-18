@@ -44,7 +44,7 @@ public class Battle {
 
             System.out.println("\nWhich startup would you like to register events for?");
             System.out.println("[1] " + startup1.getName() + "  [2] " + startup2.getName() + "  [3] End battle");
-            int aux = App.readInt(1, 3);
+            int aux = Utilities.readInt(1, 3);
 
             int event;
             if (aux == 1){
