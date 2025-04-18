@@ -1,3 +1,5 @@
+//import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -6,7 +8,7 @@ public class App {
 
     public static void main (String[] args) {
 
-        ArrayList<Startup> startups = new ArrayList<>();
+        ArrayList<Startup> startups = new ArrayList<Startup>();
 
         System.out.println("\nWelcome to STARTUP RUSH!");
         System.out.println("First, let's register 4, 6 or 8 teams to join the competition\n");
@@ -42,7 +44,7 @@ public class App {
         while (rounds > 1){
             System.out.println("Current round: " + currentRound);
 
-            ArrayList<Battle> battles = new ArrayList<>();
+            ArrayList<Battle> battles = new ArrayList<Battle>();
 
             int battleNumber = 1;
             for (int i = 0; i < rounds; i += 2) {

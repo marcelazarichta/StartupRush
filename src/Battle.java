@@ -88,9 +88,6 @@ public class Battle {
             Thread.currentThread().interrupt();
         }
 
-
         System.out.println(getHighestScore().getName() + "  [Score: " + getHighestScore().getScore() + "]\n");
-
     }
-
 }
