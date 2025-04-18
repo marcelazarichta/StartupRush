@@ -6,6 +6,8 @@ public class Startup {
     private int foundingYear;
     private int score;
     private boolean[] events;
+    private int[] eventsOcurrences;
+    private String[] eventName;
 
 
     public Startup(int teamNumber, String name, String slogan, int foundingYear) {
@@ -15,50 +17,52 @@ public class Startup {
         this.foundingYear = foundingYear;
         this.score = 70;
         this.events = new boolean[5];
+        this.eventsOcurrences = new int[5];
+        this.eventName = setEventName();
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getScore() {
+        return score;
     }
 
     public String getSlogan() {
         return slogan;
     }
 
-    public void setSlogan(String slogan) {
-        this.slogan = slogan;
-    }
-
-    public int getFoundingYear() {
-        return foundingYear;
-    }
-
-    public void setFoundingYear(int foundingYear) {
-        this.foundingYear = foundingYear;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
     public void setScore(int score) {
         this.score += score;
     }
 
+    public int getEventOcurrences(int index) {
+        return eventsOcurrences[index];
+    }
+
+    public String[] getEventName() {
+        return eventName;
+    }
+
+    public String[] setEventName(){
+        eventName = new String[5];
+        eventName[0] = "Convincing pitch";
+        eventName[1] = "Buggy product";
+        eventName[2] = "Good user traction";
+        eventName[3] = "Annoyed investor";
+        eventName[4] = "Pitch with fake news";
+
+        return eventName;
+    }
+
+
+
+
+
+
     public void resetEvents(){
         this.events = new boolean[5];
-    }
-
-    public boolean[] getEvents() {
-        return events;
-    }
-
-    public void setEvents(boolean[] events) {
-        this.events = events;
     }
 
     public int selectAvailableEvents() {
@@ -116,6 +120,7 @@ public class Startup {
         }
 
         events[event] = true;
+        eventsOcurrences[event]++;
     }
 
 
@@ -128,4 +133,5 @@ public class Startup {
         sb.append("Score: " + score + "\n");
         return sb.toString();
     }
+
 }

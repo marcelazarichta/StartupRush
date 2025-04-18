@@ -2,12 +2,9 @@ import java.util.Random;
 
 public class Battle {
 
-    private int battleNumber;
-
     private Startup startup1, startup2;
 
     public Battle(int battleNumber, Startup startup1, Startup startup2) {
-        this.battleNumber = battleNumber;
         this.startup1 = startup1;
         this.startup2 = startup2;
     }
@@ -20,15 +17,6 @@ public class Battle {
         return startup2;
     }
 
-    public int getBattleNumber() {
-        return battleNumber;
-    }
-
-    public void setBattleNumber(int battleNumber) {
-        this.battleNumber = battleNumber;
-    }
-
-
     public Startup getHighestScore(){
         if (startup1.getScore() > startup2.getScore()){
             return startup1;
@@ -40,6 +28,11 @@ public class Battle {
     public void printStartups(){
         System.out.println(getStartup1().getName() + "  [Score: " + getStartup1().getScore() + "]");
         System.out.println(getStartup2().getName() + "  [Score: " + getStartup2().getScore() + "]");
+    }
+
+    public void resetStartups(){
+        startup1.resetEvents();
+        startup2.resetEvents();
     }
 
     public void startBattle(){
@@ -75,7 +68,7 @@ public class Battle {
     public void sharkfight (){
         System.out.println("\nWe have a tie between the two startups!");
         printStartups();
-        System.out.println("\nIt's SHARK FIGHT time");
+        System.out.println("\n  \uD83E\uDD88  It's SHARK FIGHT time  \uD83E\uDD88\n");
         System.out.println("where a random team gets 2 points");
         System.out.println("And the winner is...\n");
 
