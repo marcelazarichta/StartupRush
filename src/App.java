@@ -1,12 +1,13 @@
-//import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
 public class App {
+    //static DatabaseManager databaseManager = new DatabaseManager();
 
     public static void main (String[] args) {
+
+
 
         ArrayList<Startup> startups = new ArrayList<Startup>();
 
@@ -116,7 +117,8 @@ public class App {
         System.out.println("Founding year: ");
         foundingYear = Utilities.readInt(Integer.MIN_VALUE, Integer.MAX_VALUE);
 
-        startup = new Startup(teamNumber, name, slogan, foundingYear);
+        startup = new Startup(name, slogan, foundingYear);
+        //databaseManager.registerStartup(name, slogan, foundingYear);
 
         return startup;
     }

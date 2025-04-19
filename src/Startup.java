@@ -1,8 +1,5 @@
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Startup {
 
-    private int teamNumber;
     private String name;
     private String slogan;
     private int foundingYear;
@@ -12,8 +9,7 @@ public class Startup {
     private String[] eventName;
 
 
-    public Startup(int teamNumber, String name, String slogan, int foundingYear) {
-        this.teamNumber = teamNumber;
+    public Startup(String name, String slogan, int foundingYear) {
         this.name = name;
         this.slogan = slogan;
         this.foundingYear = foundingYear;
@@ -126,7 +122,6 @@ public class Startup {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Team Number: " + teamNumber + "\n");
         sb.append("Name: " + name + "\n");
         sb.append("Slogan: " + slogan + "\n");
         sb.append("Founding Year: " + foundingYear + "\n");
