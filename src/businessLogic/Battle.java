@@ -1,5 +1,7 @@
 package businessLogic;
 
+import utilities.Utilities;
+
 import java.util.Random;
 
 public class Battle {
