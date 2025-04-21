@@ -27,7 +27,6 @@ public class Startup {
                 "Annoyed investor",
                 "Pitch with fake news"
         };
-        ;
     }
 
     public String getName() {
@@ -82,24 +81,24 @@ public class Startup {
 
     public void printAvailableEvents() {
         if (!events[0]) {
-            System.out.println("[1] Convincing pitch +6");
+            System.out.println("[1] " + eventName[0] + " +6");
         }
         if (!events[1]) {
-            System.out.println("[2] Buggy product -4");
+            System.out.println("[2] "+ eventName[1] + " -4");
         }
         if (!events[2]) {
-            System.out.println("[3] Good user traction +3");
+            System.out.println("[3] " + eventName[2] + " +3");
         }
         if (!events[3]) {
-            System.out.println("[4] Annoyed investor -6");
+            System.out.println("[4] " + eventName[3] + " -6");
         }
         if (!events[4]) {
-            System.out.println("[5] Pitch with fake news -8");
+            System.out.println("[5] " + eventName[4] + " -8");
         }
         System.out.println("[6] Exit");
     }
 
-    public void makeEvent (int event){
+    public void makeEvent(int event) {
         switch (event) {
             case 0:
                 score += 6;
