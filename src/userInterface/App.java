@@ -3,7 +3,6 @@ package userInterface;
 import application.BattleController;
 import application.StartupController;
 import businessLogic.*;
-import persistence.DatabaseManager;
 import utilities.Utilities;
 
 import java.util.ArrayList;
@@ -14,9 +13,9 @@ public class App {
     static StartupController startupController = new StartupController();
     static BattleController battleController = new BattleController();
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
-        System.out.println("\nWelcome to STARTUP RUSH!");
+        System.out.println("\n           \uD83E\uDD88  Welcome to STARTUP RUSH!  \uD83E\uDD88");
         System.out.println("First, let's register 4, 6 or 8 teams to join the competition\n");
 
 
@@ -46,7 +45,7 @@ public class App {
 
         int currentRound = 1;
 
-        while (rounds > 1){
+        while (rounds > 1) {
             System.out.println("Current round: " + currentRound);
 
             for (int i = 0; i < rounds; i += 2) {
@@ -79,19 +78,21 @@ public class App {
         Startup winner = startupController.getStartup(0);
         printTable(startupController.getStartups());
 
-        System.out.println("\n" + winner.getSlogan());
+
+        System.out.println("\n\uD83E\uDD88 Equipe vencedora: " + winner.getName());
+        Utilities.printBlue("   " + winner.getSlogan());
     }
 
-    public static void createStartup (int teamNumber) {
+    public static void createStartup(int teamNumber) {
         Scanner in = new Scanner(System.in);
 
         String name;
         String slogan;
         int foundingYear = 0;
 
-        System.out.println("\nTeam " + teamNumber);
+        System.out.println("\n\uD83E\uDD88 Team " + teamNumber);
 
-        System.out.println("\nName: ");
+        System.out.println("Name: ");
         name = in.nextLine();
 
         System.out.println("Slogan: ");
@@ -104,7 +105,8 @@ public class App {
     }
 
     public static void printTable(ArrayList<Startup> startups) {
-        System.out.printf("%-15s %-10s", "model.Startup", "Score");
+        System.out.println();
+        System.out.printf("%-15s %-10s", "Startup", "Score");
 
         if (!startups.isEmpty()) {
             Startup firstStartup = startups.get(0);

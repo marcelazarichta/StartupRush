@@ -11,6 +11,7 @@ public class Startup {
     private boolean[] events;
     private int[] eventsOcurrences;
     private String[] eventName;
+    private String[] randomEvents;
 
 
     public Startup(String name, String slogan, int foundingYear) {
@@ -26,6 +27,16 @@ public class Startup {
                 "Good user traction",
                 "Annoyed investor",
                 "Pitch with fake news"
+        };
+        this.randomEvents = new String[] {
+                "Economic recession -6",
+                "Impressed investor +3",
+                "Representative stuttered during the presentation -2",
+                "Product is trending topics on Twitter +2",
+                "Pitch was a little too long -1",
+                "Products are in perfect condition +4",
+                "Data leak -4",
+                "Celebrity made free Instagram story about the Startup +6"
         };
     }
 
@@ -63,9 +74,14 @@ public class Startup {
             System.out.println("\nSelect an available event: ");
 
             printAvailableEvents();
-            event = Utilities.readInt(1, 6);
+            event = Utilities.readInt(1, 7);
 
             if (event == 6){
+                makeRandomEvent();
+                continue;
+            }
+
+            if (event == 7){
                 break;
             }
 
@@ -95,7 +111,8 @@ public class Startup {
         if (!events[4]) {
             System.out.println("[5] " + eventName[4] + " -8");
         }
-        System.out.println("[6] Exit");
+        System.out.println("[6] Random surprise event");
+        System.out.println("[7] Exit");
     }
 
     public void makeEvent(int event) {
@@ -120,6 +137,39 @@ public class Startup {
 
         events[event] = true;
         eventsOcurrences[event]++;
+    }
+
+    private void makeRandomEvent() {
+        int randomEvent = Utilities.randomNumber(randomEvents.length);
+
+        System.out.println("\n" + randomEvents[randomEvent]);
+
+        switch (randomEvent) {
+            case 0:
+                score -= 6;
+                break;
+            case 1:
+                score += 3;
+                break;
+            case 2:
+                score -= 2;
+                break;
+            case 3:
+                score += 2;
+                break;
+            case 4:
+                score -= 1;
+                break;
+            case 5:
+                score += 4;
+                break;
+            case 6:
+                score -= 4;
+                break;
+            default:
+                score += 6;
+                break;
+        }
     }
 
 

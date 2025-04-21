@@ -8,11 +8,17 @@ import java.util.Scanner;
 
 public class Utilities {
 
+    private static Random rand = new Random();
     private static String red = "\u001B[31m";
     private static String normal = "\u001B[0m";
+    private static String blue = "\u001B[34m";
 
-    public static void printRed (String message) {
+    public static void printRed(String message) {
         System.out.println(red + message + normal);
+    }
+
+    public static void printBlue(String message) {
+        System.out.println(blue + message + normal);
     }
 
     public static int readInt(int bottomLimit, int topLimit) {
@@ -34,7 +40,7 @@ public class Utilities {
         }
     }
 
-    public static ArrayList<Startup> ramdomDraw (ArrayList<Startup> startups, int limit) {
+    public static ArrayList<Startup> ramdomDraw(ArrayList<Startup> startups, int limit) {
         Random rand = new Random();
         ArrayList<Startup> newArray = new ArrayList<>();
         ArrayList<Startup> temp = new ArrayList<>();
@@ -57,5 +63,9 @@ public class Utilities {
         }
 
         return newArray;
+    }
+
+    public static int randomNumber(int limit) {
+        return rand.nextInt(limit);
     }
 }

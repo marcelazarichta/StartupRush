@@ -3,7 +3,6 @@ package application;
 import businessLogic.Battle;
 import businessLogic.Startup;
 import persistence.DatabaseManager;
-import utilities.Utilities;
 
 import java.util.ArrayList;
 

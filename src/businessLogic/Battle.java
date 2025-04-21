@@ -62,13 +62,13 @@ public class Battle {
             int event;
             if (aux == 1) {
                 event = getStartup1().selectAvailableEvents();
-                if (event == 6) {
+                if (event == 7) {
                     continue;
                 }
                 startup1.makeEvent(event - 1);
             } else if (aux == 2) {
                 event = getStartup2().selectAvailableEvents();
-                if (event == 6) {
+                if (event == 7) {
                     continue;
                 }
                 startup2.makeEvent(event - 1);
