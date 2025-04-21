@@ -1,3 +1,5 @@
+package businessLogic;
+
 import java.util.Random;
 
 public class Battle {

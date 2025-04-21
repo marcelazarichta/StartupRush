@@ -1,13 +1,14 @@
+import businessLogic.*;
+import persistence.DatabaseManager;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
 public class App {
-    //static DatabaseManager databaseManager = new DatabaseManager();
+    static DatabaseManager databaseManager = new DatabaseManager();
 
     public static void main (String[] args) {
-
-
 
         ArrayList<Startup> startups = new ArrayList<Startup>();
 
@@ -76,6 +77,15 @@ public class App {
 
                 //winner gets 30 points
                 chosenBattle.getHighestScore().setScore(30);
+
+                databaseManager.saveRoundResult(
+                        chosenBattle.getStartup1().getName(),
+                        chosenBattle.getStartup2().getName(),
+                        chosenBattle.getHighestScore().getName(),
+                        chosenBattle.getStartup1().getScore(),
+                        chosenBattle.getStartup2().getScore()
+                );
+
                 chosenBattle.resetStartups();
 
                 battles.remove(chosenBattle);
@@ -118,13 +128,14 @@ public class App {
         foundingYear = Utilities.readInt(Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         startup = new Startup(name, slogan, foundingYear);
-        //databaseManager.registerStartup(name, slogan, foundingYear);
+
+        databaseManager.registerStartup(name, slogan, foundingYear);
 
         return startup;
     }
 
     public static void printTable(ArrayList<Startup> startups) {
-        System.out.printf("%-15s %-10s", "Startup", "Score");
+        System.out.printf("%-15s %-10s", "model.Startup", "Score");
 
         if (!startups.isEmpty()) {
             Startup firstStartup = startups.get(0);
