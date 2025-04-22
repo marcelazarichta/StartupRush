@@ -21,6 +21,18 @@ public class Utilities {
         System.out.println(blue + message + normal);
     }
 
+    public static int randomNumber(int limit) {
+        return rand.nextInt(limit);
+    }
+
+    public static void timeDelay(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
     public static int readInt(int bottomLimit, int topLimit) {
         Scanner in = new Scanner(System.in);
         while (true) {
@@ -63,9 +75,5 @@ public class Utilities {
         }
 
         return newArray;
-    }
-
-    public static int randomNumber(int limit) {
-        return rand.nextInt(limit);
     }
 }

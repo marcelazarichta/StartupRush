@@ -56,6 +56,10 @@ public class Startup {
         this.score += score;
     }
 
+    public boolean getEvent(int index) {
+        return events[index];
+    }
+
     public int getEventOcurrences(int index) {
         return eventsOcurrences[index];
     }
@@ -69,7 +73,7 @@ public class Startup {
     }
 
     public int selectAvailableEvents() {
-        int event = 0;
+        int event;
         while(true) {
             System.out.println("\nSelect an available event: ");
 
@@ -139,7 +143,7 @@ public class Startup {
         eventsOcurrences[event]++;
     }
 
-    private void makeRandomEvent() {
+    public void makeRandomEvent() {
         int randomEvent = Utilities.randomNumber(randomEvents.length);
 
         System.out.println("\n" + randomEvents[randomEvent]);
